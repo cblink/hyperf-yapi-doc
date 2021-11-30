@@ -132,6 +132,34 @@ abstract class Dto extends BaseDto
     }
 
     /**
+     * @param TestResponse $response
+     */
+    public function builder(TestResponse $response)
+    {
+        $content = [
+            "tags" =>  [$this->category],
+            "summary" =>  $this->name,
+            "description" => $this->desc ?? '',
+            "consumes" => [
+                "application/json"
+            ],
+            "parameters" => array_merge(
+                $this->getParams(),
+                $this->getHeaders($response),
+                $this->getQuery($response),
+                $this->getBody($response)
+            ),
+            "responses" => $this->getResponse($response)
+        ];
+
+        foreach ($this->project as $project) {
+            $file = strtolower($response->method() . str_replace( '/', '@', $this->getUrl($response->url())) . '.json');
+
+            file_put_contents($project . '/' . $file, $content);
+        }
+    }
+
+    /**
      * @return mixed
      */
     abstract public function getConfig() :array;

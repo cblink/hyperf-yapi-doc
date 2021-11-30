@@ -2,14 +2,14 @@
 
 namespace Cblink\Hyperf\Yapi\Traits;
 
+use Cblink\Hyperf\Yapi\TestResponse;
 use Hyperf\Utils\Arr;
-use Cblink\Hyperf\Yapi\Yapi;
 
 trait DtoResponse
 {
-    public function getResponse(Yapi $yapi)
+    public function getResponse(TestResponse $response)
     {
-        $response = $yapi->response();
+        $response = $response->response();
 
         if (!is_array($response)) {
             return [

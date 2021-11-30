@@ -2,24 +2,24 @@
 
 namespace Cblink\Hyperf\Yapi\Traits;
 
-use Cblink\Hyperf\Yapi\Yapi;
+use Cblink\Hyperf\Yapi\TestResponse;
 
 trait DtoBody
 {
 
-    public function getBody(Yapi $yapi)
+    public function getBody(TestResponse $response)
     {
-        if (!in_array($yapi->method(), ['POST', 'PUT'])) {
+        if (!in_array($response->method(), ['POST', 'PUT'])) {
             return [];
         }
 
-        return $yapi->request() ? [[
+        return $response->request() ? [[
             "name" => "root",
             "in" => "body",
             "schema" =>  array_merge([
                 "type" => "object",
                 "title" => "empty object",
-            ], $this->handlerArray($yapi->request(), []))
+            ], $this->handlerArray($response->request(), []))
         ]] : [];
     }
 }

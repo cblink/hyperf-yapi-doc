@@ -2,10 +2,7 @@
 
 namespace Cblink\Hyperf\Yapi;
 
-use Hyperf\HttpMessage\Server\Response;
-use HyperfTest\Yapi\Dto as YapiDto;
-
-class Yapi
+class TestResponse
 {
     protected string $method;
 
@@ -27,7 +24,7 @@ class Yapi
     }
 
     /**
-     * @return array|Response
+     * @return array
      */
     public function response()
     {
@@ -66,34 +63,8 @@ class Yapi
         return $this->method;
     }
 
-    /**
-     * @param Dto $dto
-     * @return bool
-     */
-    public function build(YapiDto $dto) :bool
+    public function dump()
     {
-        $content = [
-            "tags" =>  [$dto->category],
-            "summary" =>  $dto->name,
-            "description" => $dto->desc ?? '',
-            "consumes" => [
-                "application/json"
-            ],
-            "parameters" => array_merge(
-                $dto->getParams(),
-                $dto->getHeaders($this),
-                $dto->getQuery($this),
-                $dto->getBody($this)
-            ),
-            "responses" => $dto->getResponse($this)
-        ];
-
-        foreach ($dto->project as $project) {
-            $file = strtolower($this->method() . str_replace( '/', '@', $dto->getUrl($this->url())) . '.json');
-
-            File::put($project . '/' . $file, $content);
-        }
-
-        return true;
+        var_dump($this->response());
     }
 }

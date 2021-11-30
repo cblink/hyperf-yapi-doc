@@ -2,22 +2,22 @@
 
 namespace Cblink\Hyperf\Yapi\Traits;
 
+use Cblink\Hyperf\Yapi\TestResponse;
 use Hyperf\Utils\Arr;
-use Cblink\Hyperf\Yapi\Yapi;
 
 trait DtoQuery
 {
     /**
-     * @param Yapi $yapi
+     * @param TestResponse $response
      * @return array
      */
-    public function getQuery(Yapi $yapi)
+    public function getQuery(TestResponse $response)
     {
         $items = [];
 
-        if (in_array($yapi->method(), ['GET','DELETE'])) {
+        if (in_array($response->method(), ['GET','DELETE'])) {
 
-            foreach ($yapi->request() as $key => $value) {
+            foreach ($response->request() as $key => $value) {
                 $description = sprintf(
                     "%s %s",
                     (is_array($value) ? 'array :': ''),

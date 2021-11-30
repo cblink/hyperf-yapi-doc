@@ -2,17 +2,17 @@
 
 namespace Cblink\Hyperf\Yapi\Traits;
 
+use Cblink\Hyperf\Yapi\TestResponse;
 use Hyperf\Utils\Arr;
-use Cblink\Hyperf\Yapi\Yapi;
 
 trait DtoHeader
 {
 
-    public function getHeaders(Yapi $yapi): array
+    public function getHeaders(TestResponse $response): array
     {
         $items = [];
 
-        foreach ($yapi->headers() as $key => $value) {
+        foreach ($response->headers() as $key => $value) {
             $description = sprintf(
                 "%s %s",
                 (is_array($value) ? 'array :': ''),
