@@ -1,0 +1,22 @@
+{
+    "name": "cblink\/hyperf-yapi-doc",
+    "description": "Package description here.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nick",
+            "email": "me@xieying.vip"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "hyperf/utils": "^2.2",
+        "cblink/laravel-dto": "^2.0",
+        "hyperf/validation": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cblink\\Hyperf\\Yapi\\": "src"
+        }
+    }
+}
