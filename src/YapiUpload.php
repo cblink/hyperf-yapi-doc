@@ -11,10 +11,10 @@ class YapiUpload {
 
     protected $basePath;
 
-    public function __construct($config, $basePath)
+    public function __construct($config)
     {
         $this->config = $config;
-        $this->basePath = $basePath;
+        $this->basePath = Arr::get($config, 'base_path');
     }
 
     public function upload()
