@@ -155,7 +155,7 @@ abstract class Dto extends BaseDto
         foreach ($this->project as $project) {
             $file = strtolower($response->method() . str_replace( '/', '@', $this->getUrl($response->url())) . '.json');
 
-            file_put_contents($project . '/' . $file, $content);
+            File::put(Arr::get($this->getConfig(), 'base_path'), $project . '/' . $file, $content);
         }
     }
 

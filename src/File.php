@@ -6,14 +6,13 @@ class File
 {
 
     /**
+     * @param $basePath
      * @param $key
      * @param array $content
      * @return false|int
      */
-    public static function put($key, array $content = [])
+    public static function put($basePath, $key, array $content = [])
     {
-        $basePath = BASE_PATH .'/runtime/yapi/';
-
         if (!file_exists($basePath)) {
             mkdir($basePath, 0777, true);
         }
