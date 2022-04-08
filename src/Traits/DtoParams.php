@@ -18,16 +18,16 @@ trait DtoParams
         if ($params) {
             foreach ($params as $num => $desc) {
 
-                $required = strstr('?', $num);
-                $num = str_replace( '?', '', $num);
+                $required = strstr('?', (string) $num);
+                $num = str_replace( '?', '', (string) $num);
 
-                array_push($items, [
+                $items[] = [
                     "name" => $num,
-                    "in"=> "path",
-                    "description"=> $desc,
+                    "in" => "path",
+                    "description" => $desc,
                     "required" => !!$required,
-                    "type"=> "string"
-                ]);
+                    "type" => "string"
+                ];
             }
         }
 
