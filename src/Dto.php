@@ -56,14 +56,14 @@ abstract class Dto extends BaseDto
     public static function mapDesc($name, array $array = [], bool $notKeys = false)
     {
         if ($notKeys) {
-            $return = implode('，', $array);
+            $return = implode(" \n ", $array);
         } else {
             $return = urldecode(http_build_query($array));
             $return = str_replace('=', ' : ', $return);
-            $return = str_replace('&', ' ， ', $return);
+            $return = str_replace('&', " \n ", $return);
         }
 
-        return sprintf('%s %s', $name, $return);
+        return sprintf('%s %s%s', $name, "\n ", $return);
     }
 
     public function validate()
