@@ -11,9 +11,9 @@
     "require": {
         "php": ">=7.4",
         "ext-json": "*",
-        "hyperf/utils": "^2.2",
+        "hyperf/utils": "^2.2|^3.0",
         "cblink/laravel-dto": "^2.0",
-        "hyperf/validation": "^2.2",
+        "hyperf/validation": "^2.2|^3.0",
         "cblink/yapi-sdk": "^0.2.0"
     },
     "autoload": {
