@@ -93,7 +93,7 @@ abstract class Dto extends BaseDto
      * @param null $default
      * @return array|\ArrayAccess|mixed
      */
-    protected function getResult($name, $key, $default = null)
+    protected function getResult($name, $key, $default = '')
     {
         $payload = Arr::get($this->payload, $name);
 
@@ -152,7 +152,7 @@ abstract class Dto extends BaseDto
             "responses" => $this->getResponse($response)
         ];
 
-        foreach ($this->project as $project) {
+        foreach ($this->project ?? ['default'] as $project) {
             $file = strtolower($response->method() . str_replace( '/', '@', $this->getUrl($response->url())) . '.json');
 
             File::put(Arr::get($this->getConfig(), 'base_path'), $project . '/' . $file, $content);
