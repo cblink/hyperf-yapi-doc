@@ -11,7 +11,7 @@
     "require": {
         "php": ">=7.4",
         "ext-json": "*",
-        "cblink/laravel-dto": "^2.0",
+        "cblink/laravel-dto": "^3.0",
         "cblink/yapi-sdk": "^0.2.0"
     },
     "autoload": {
