@@ -2,7 +2,7 @@
 
 namespace Cblink\Hyperf\Yapi\Traits;
 
-use Hyperf\Utils\Arr;
+use Hyperf\Collection\Arr;
 
 trait HandleArray
 {

@@ -3,7 +3,7 @@
 namespace Cblink\Hyperf\Yapi\Traits;
 
 use Cblink\Hyperf\Yapi\TestResponse;
-use Hyperf\Utils\Arr;
+use Hyperf\Collection\Arr;
 
 trait DtoResponse
 {

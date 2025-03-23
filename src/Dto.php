@@ -2,7 +2,7 @@
 
 namespace Cblink\Hyperf\Yapi;
 
-use Hyperf\Utils\Arr;
+use Hyperf\Collection\Arr;
 use Cblink\Dto\Dto as BaseDto;
 use Cblink\Hyperf\Yapi\Traits\DtoBody;
 use Cblink\Hyperf\Yapi\Traits\DtoHeader;

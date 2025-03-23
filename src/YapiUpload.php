@@ -3,7 +3,7 @@
 namespace Cblink\Hyperf\Yapi;
 
 use Cblink\YApi\YApiRequest;
-use Hyperf\Utils\Arr;
+use Hyperf\Collection\Arr;
 
 class YapiUpload {
 
